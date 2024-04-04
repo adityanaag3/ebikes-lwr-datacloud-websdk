@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>E-Bikes LWR + Data Cloud Web SDK</title>
+
+        <!-- Point to SLDS stylesheet -->
+        <link rel="stylesheet" href="$assetsDir/styles/salesforce-lightning-design-system.css" />
+        <style>
+            footer{
+                border-top: 1px solid #eee;
+                background: white;
+            }
+        </style>
+        <script src="https://cdn.c360a.salesforce.com/beacon/c360a/xxxxx-xxxxx-xxxxx-xxxxx/scripts/c360a.min.js"></script>
+
+        <script>
+            SalesforceInteractions.init().then(()=>{
+                const { 
+                    listener, 
+                    sendEvent,
+                } = SalesforceInteractions;
+
+                const global = {
+                    listeners: [
+                        // capture clicks on the <a> tags present in the <footer>
+                        listener('click', 'footer>a', (actionEvent) => {
+                            sendEvent({ 
+                                interaction: {
+                                    name: 'otherInteractions',
+                                    eventType: 'otherInteractions',
+                                    interactionType: 'click',
+                                    interactedElement: actionEvent.target.name,
+                                    interactedElementType: 'Footer Links'
+                                }
+                            })
+                        })
+                    ],
+                }
+
+                const pageTypeDefault = {
+                    name: 'default'
+                }
+
+                // Initialize the sitemap
+                SalesforceInteractions.initSitemap({
+                    global,
+                    pageTypeDefault,
+                    pageTypes: []
+                });
+
+            });
+
+            SalesforceInteractions.setLoggingLevel(4); // For debugging purposes
+
+            const { OnSetAnonymousId, OnEventSend } = SalesforceInteractions.CustomEvents;
+            
+            document.addEventListener(OnEventSend, (customEvent) => {
+                // console.log('On Event Send: ', customEvent.detail)
+            });
+
+        </script>
+    </head>
+    <body>
+        {{ body | safe }}
+        {{ lwr_resources | safe }}
+        <footer class="slds-text-align_center slds-p-around_small">
+            <a target="_blank" name="LWR Documentation" href="https://developer.salesforce.com/docs/platform/lwr/guide/lwr-get-started.html">Built using Lightning Web Runtime for Node.js</a>
+        </footer>
+    </body>
+</html>

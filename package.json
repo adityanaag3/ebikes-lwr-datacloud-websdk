@@ -1,0 +1,37 @@
+{
+  "name": "ebikes-lwr",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf node_modules __lwr_cache__ site",
+    "dev": "lwr dev",
+    "dev:server": "MODE=dev node src/server/server.js --mode dev",
+    "dev:compat": "lwr dev --mode compat",
+    "build": "node ./scripts/copy-slds.mjs && lwr build --clean",
+    "build:prod-compat": "lwr build --clean --mode prod-compat",
+    "start": "lwr start",
+    "start:server": "MODE=prod node src/server/server.js --mode prod",
+    "stage": "yarn build && yarn start",
+    "stage:prod-compat": "yarn build:prod-compat && yarn start"
+  },
+  "dependencies": {
+    "@salesforce-ux/design-system": "^2.23.2",
+    "lwc": "6.4.1",
+    "lwr": "0.12.2",
+    "dotenv": "^16.0.0",
+    "jsforce": "^1.11.0",
+    "salesforce-jwt-bearer-token-flow": "^0.2.4"
+  },
+  "devDependencies": {
+    "cpx": "1.5.0",
+    "lightning-base-components": "^1.21.9-alpha"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "volta": {
+    "node": "18.18.2"
+  }
+}

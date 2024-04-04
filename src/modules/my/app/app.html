@@ -1,0 +1,25 @@
+<template>
+    <header class="slds-p-around_large slds-p-around_large slds-grid slds-grid_align-spread">
+        <div class="slds-col slds-grid">
+            <img src="/public/assets/logo.svg" alt="logo" class="logo"/>
+            <h1 class="slds-text-heading_large">E-Bikes</h1>
+        </div>
+        <div class="slds-col slds-text-align_center">
+            Consent <br/>
+            <my-consent></my-consent>
+        </div>
+        <div class="slds-col">
+            <my-identity></my-identity>
+        </div>
+    </header>
+    <main>
+        <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
+            <div class="slds-col slds-size_2-of-3">
+                <my-product-tile-list onselected={handleSelected}></my-product-tile-list>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <my-product-card selected-product={selectedProduct}></my-product-card>
+            </div>
+        </div>
+    </main>
+</template>

@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-card slds-var-p-around_x-small">
+        <template lwc:if={products.data}>
+            <template lwc:if={products.data.records.length}>
+                <div class="slds-grid_align-center slds-grid slds-wrap">
+                    <template
+                        for:each={products.data.records}
+                        for:item="product"
+                    >
+                        <my-product-tile
+                            key={product.Id}
+                            product={product}
+                            class="slds-var-m-around_x-small"
+                        >
+                        </my-product-tile>
+                    </template>
+                </div>
+                
+            </template>
+            <template lwc:else>
+                There are no products matching your current selection
+            </template>
+        </template>
+        <template lwc:if={products.error}>
+            An error occurred.
+        </template>
+    </div>
+</template>

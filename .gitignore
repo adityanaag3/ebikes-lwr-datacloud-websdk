@@ -1,0 +1,10 @@
+node_modules
+__lwr_cache__
+src/assets/styles/salesforce-*
+src/assets/icons
+src/assets/images
+.DS_Store
+site
+.env
+private.pem
+server.cert

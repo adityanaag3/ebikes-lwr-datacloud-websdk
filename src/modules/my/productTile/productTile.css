@@ -1,0 +1,23 @@
+.content {
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+}
+
+a {
+    color: inherit;
+}
+
+.product {
+    max-width: initial;
+    pointer-events: none;
+}
+
+.productImg{
+    max-width: 200px;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}

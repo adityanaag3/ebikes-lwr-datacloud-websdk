@@ -1,0 +1,89 @@
+<template>
+    <lightning-card icon-name="standard:apex_plugin">
+        <template lwc:if={selectedProduct}>
+            <span slot="title">{productName}</span>
+            
+            <div class="slds-var-m-horizontal_medium">
+                <img
+                    src={selectedProduct.Picture_URL__c}
+                    class="product"
+                    alt="Product picture"
+                />
+
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Category</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Category__c}</div>
+                    </div>
+                </div>
+
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Level</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Level__c}</div>
+                    </div>
+                </div>
+
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">MSRP</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.MSRP__c}</div>
+                    </div>
+                </div>
+
+                <section>Electric Components</section>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Battery</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Battery__c}</div>
+                    </div>
+                </div>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Charger</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Charger__c}</div>
+                    </div>
+                </div>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Motor</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Motor__c}</div>
+                    </div>
+                </div>
+                <section>Frame</section>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Material</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Material__c}</div>
+                    </div>
+                </div>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Fork</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Fork__c}</div>
+                    </div>
+                </div>
+
+                <section>Brakes</section>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Front Brakes</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Front_Brakes__c}</div>
+                    </div>
+                </div>
+                <div class="slds-form-element slds-form-element_readonly">
+                    <span class="slds-form-element__label">Rear Brakes</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{selectedProduct.Rear_Brakes__c}</div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template lwc:else>
+            <div class="slds-text-align_center slds-m-bottom_large">
+                Please select a product to view details
+            </div>
+        </template>
+    </lightning-card>
+</template>
