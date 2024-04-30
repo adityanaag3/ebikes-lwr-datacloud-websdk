@@ -10,9 +10,9 @@ This is a sample website built using LWR to show case the abilities of **Data Cl
 ## Running the Project in dev Mode
 
 ```bash
-yarn install
-yarn build
-yarn dev
+npm install
+npm run build
+npm run dev
 ```
 
 Open the site at [http://localhost:3000](http://localhost:3000)
