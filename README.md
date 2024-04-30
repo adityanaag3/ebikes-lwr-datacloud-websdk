@@ -11,6 +11,7 @@ This is a sample website built using LWR to show case the abilities of **Data Cl
 
 ```bash
 yarn install
+yarn build
 yarn dev
 ```
 
